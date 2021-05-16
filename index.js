@@ -912,6 +912,42 @@ if (text.includes("placa"))
                     if (!isGroup) return reply(mess.only.Group)
                     client.sendMessage(from, ler02(prefix), text, { quoted: mek })
                     break
+				case 'ler03':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler03(prefix), text, { quoted: mek })
+                    break
+				case 'ler04':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler04(prefix), text, { quoted: mek })
+                    break
+				case 'ler05':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler05(prefix), text, { quoted: mek })
+                    break
+				case 'ler06':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler06(prefix), text, { quoted: mek })
+                    break
+				case 'ler07':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler07(prefix), text, { quoted: mek })
+                    break
+				case 'ler08':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler08(prefix), text, { quoted: mek })
+                    break
+				case 'ler09':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler09(prefix), text, { quoted: mek })
+                    break
+				case 'ler10':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler10(prefix), text, { quoted: mek })
+                    break
+				case 'ler11':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler11(prefix), text, { quoted: mek })
+                    break
 				case 'ytmp4':
 					if (args.length < 1) return reply('Cadê o url, hum?')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
