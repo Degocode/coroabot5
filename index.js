@@ -18,7 +18,17 @@ const { destrava2 } = require('./src/destrava')
 const { gbin } = require('./src/gbin')
 const { gpessoa } = require('./src/gpessoa')
 const { chentai } = require('./src/chentai')
-const { ler } = require('./site/ler')
+const { ler01 } = require('./site/ler01')
+const { ler02 } = require('./site/ler02')
+const { ler03 } = require('./site/ler03')
+const { ler04 } = require('./site/ler04')
+const { ler05 } = require('./site/ler05')
+const { ler06 } = require('./site/ler06')
+const { ler07 } = require('./site/ler07')
+const { ler08 } = require('./site/ler08')
+const { ler09 } = require('./site/ler09')
+const { ler10 } = require('./site/ler10')
+const { ler11 } = require('./site/ler11')
 const { gcpf } = require('./src/gcpf')
 const { addsay } = require('./src/addsay')
 const { listsay } = require('./src/listsay')
@@ -886,21 +896,21 @@ if (text.includes("placa"))
                     if (!isGroup) return reply(mess.only.Group)
                     client.sendMessage(from, pack(prefix), text, { quoted: mek })
                     break
-                   case 'chentai':
-                    if (!isGroup) return reply(mess.only.Group)
-                    client.sendMessage(from, chentai(prefix), text, { quoted: mek })
-                    break
-				   case 'ler':
-                    if (!isGroup) return reply(mess.only.Group)
-                    client.sendMessage(from, chentai(prefix), text, { quoted: mek })
-                    break
-				   case 'ler01':
+                case 'chentai':
                     if (!isGroup) return reply(mess.only.Group)
                     client.sendMessage(from, chentai(prefix), text, { quoted: mek })
                     break
 				   case 'gcpf':
                     if (!isPremium) return reply(mess.only.premium)
                     client.sendMessage(from, gcpf(prefix), text, { quoted: mek })
+                    break
+				case 'ler01':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler01(prefix), text, { quoted: mek })
+                    break
+				case 'ler02':
+                    if (!isGroup) return reply(mess.only.Group)
+                    client.sendMessage(from, ler02(prefix), text, { quoted: mek })
                     break
 				case 'ytmp4':
 					if (args.length < 1) return reply('Cadê o url, hum?')
@@ -2083,9 +2093,9 @@ break
 			    case 'nsfwblowjob':
 				    try {
 						if (!isNsfw) return reply('❌ *FALSO* ❌')
-						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob`, {method: 'get'})
+						res = await fetchJson(`https://api-gdr.herokuapp.com/api/nekoblowjob`, {method: 'get'})
 						buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Não faça ingredientes para o tio comum'})
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Hentai'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply('❌ *ERRO* ❌')
@@ -2170,10 +2180,10 @@ break
 					break
 			    case 'nsfwneko':
 				    try {
-						if (!isNsfw) return reply('❌ *FALSO* ❌')
-						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko`, {method: 'get'})
+						if (!isNsfw) return reply('Deve ativar o modo Nsfw')
+						res = await fetchJson(`https://api-gdr.herokuapp.com/api/nekohentai`, {method: 'get'})
 						buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'ni anjim'})
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'neko'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply('❌ *ERRO* ❌')
@@ -2182,9 +2192,9 @@ break
 				case 'nsfwtrap':
 				    try {
 						if (!isNsfw) return reply('Deve ativar o modo Nsfw')
-						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwtrap?apikey=APIKEYLU`, {method: 'get'})
+						res = await fetchJson(`https://api-gdr.herokuapp.com/api/nekotrap`, {method: 'get'})
 						buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'ni Anjim'})
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'trapinho'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply('❌ *ERRO* ❌')
@@ -2416,7 +2426,7 @@ break
                                         break
 			    case 'waifu':
 				    try {
-						res = await fetchJson(`https://tobz-api.herokuapp.com/api/waifu`, {method: 'get'})
+						res = await fetchJson(`https://api-gdr.herokuapp.com/api/waifu`, {method: 'get'})
 						buffer = await getBuffer(res.image)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'ksksksks hmm'})
 					} catch (e) {
@@ -2424,7 +2434,7 @@ break
 						reply('❌ *ERROR* ❌')
 					}
 					break
-			    case 'waifu2':
+			    case 'nekoanim':
 					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/waifu`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
@@ -2460,9 +2470,9 @@ break
                    client.sendMessage(from, hasil, image, {quoted: mek, caption: `Resultados de *${body.slice(5)}*`})
                    await limitAdd(sender)
                    break
-                   case 'covidcountry':
+                   case 'covid19':
                    client.updatePresence(from, Presence.composing) 
-                   data = await fetchJson(`https://arugaz.my.id/api/edu/corona?country=${body.slice(7)}`)
+                   data = await fetchJson(`https://api-gdr.herokuapp.com/api/covidbr{body.slice(7)}`)
                    if (data.result) reply(data.result)
                    hasil = `País : ${data.result.country}\n\nAtivo : ${data.result.active}\ncasesPerOneMillion : ${data.result.casesPerOneMillion}\ncrítico : ${data.result.critical}\nMortes por milhão : ${data.result.deathsPerOneMillion}\nrecuperado : ${data.result.recovered}\nteste por milhão : ${data.result.testPerOneMillion}\ncasos de hj : ${data.result.todayCases}\nMortes de hj : ${data.result.todayDeath}\nCasos total : ${data.result.totalCases}\ntotalTest : ${data.result.totalTest}`
                    reply(hasil)
@@ -3109,7 +3119,7 @@ break
 				case 'blowjob':
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=j9qCOGIWcLGX25GawMGr`, {method: 'get'})
+					anu = await fetchJson(`https://api-gdr.herokuapp.com/api/nekoblowjob`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
