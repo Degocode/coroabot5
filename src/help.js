@@ -17,7 +17,7 @@ _/﹋\_
    *Menu🏰*
 👑 *figu*
 👑 *toimg*
-👑 *pinterest(pesquisar img)*
+👑 *pinterest[ pesquisar img]*
 👑 *wait [marca img anime]*
 👑 *ytmp4*
 👑 *tomp3*
@@ -29,34 +29,37 @@ _/﹋\_
 👑 *meme*
 👑 *darkjokes (memes)*
 👑 *mandememe*
-👑 *leens [marca img que tem palavra]*
-👑 *roleta [@]*
+👑 *roleta*
+👑 *amor [@]*
 👑 *casal [@]*
 👑 *punheteiros [@]*
 👑 *gay [@]*
+👑 *gays*
+👑 *bixas*
+👑 *cornos*
+👑 *surubadehoje*
 👑 *gado [@]*
-👑 *buc [@]*
+👑 *xv [@]*
 👑 *lgbt [@]*
-👑 *passatempo*
-👑 *nulis(texto) [@]*
 👑 *assttp(texto) [@]*
 👑 *text3d(texto) [@]*
 👑 *testime*
-👑 *timer*
 👑 *alerta*
-👑 *next*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
    *Imagens😊*
 👑 *modoanime [on/off]*
+👑 *waifu  [aleatórias]*
 👑 *naruto [aleatórias]*
 👑 *hinata [aleatórias]*
 👑 *boruto [aleatórias]*
 👑 *minato [aleatórias]*
 👑 *sakura [aleatórias]*
 👑 *sasuke [aleatórias]*
-👑 *rize [aleatórias]* 
+👑 *rize   [aleatórias]* 
+👑 *miku   [aleatórias]* 
+👑 *kurumi [aleatórias]* 
 👑 *loli*
 👑 *loli1*
 👑 *hentai*
@@ -68,9 +71,12 @@ _/﹋\_
 ╔════•ೋೋ•════╗ 
    *Imagens🔞*
 👑 *modonsfw [on/off]*
+👑 *ler [ex:ler01. Tem H de 01 até 11 porque ta em beta]*
 👑 *nsfwloli [apenas no pv]*
 👑 *trap*
-👑 *porno*
+👑 *nsfwblowjob*
+👑 *nsfwneko*
+👑 *nsfwtrap*
 👑 *belle*
 ╚════•ೋೋ•════╝
 
@@ -149,7 +155,7 @@ Mandar a msg sem o prefixo
 
 ╔════•ೋೋ•════╗ 
 |￣￣￣￣￣￣￣￣￣|
-|*Noah Bot 2.0*   |
+|*Noah Bot 3.0*   |
 |*NOME: ANDRÉ*     |
 |*WPP: wa.me/+5568999068797*|
 |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
@@ -161,4 +167,3 @@ Mandar a msg sem o prefixo
 }
 
 exports.help = help
-
