@@ -51,6 +51,7 @@ const { daftarvip } = require('./src/daftarvip')
 const { iklan } = require('./src/iklan')
 const { daftatvip } = require('./src/daftarvip')
 const ffmpeg = require('fluent-ffmpeg')
+const imageToBase64 = require('image-to-base64')
 const { removeBackgroundFromImageFile } = require('remove.bg')
 const imgbb = require('imgbb-uploader')
 const lolis = require('lolis.life')
@@ -81,6 +82,7 @@ const _leveling = JSON.parse(fs.readFileSync('./database/group/leveling.json'))
 const antilink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
 const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
 const _level = JSON.parse(fs.readFileSync('./database/user/level.json'))
+const uang = JSON.parse(fs.readFileSync('./database/user/uang.json'))
 const _limit = JSON.parse(fs.readFileSync('./database/json/limit.json'))
 /*********** END LOAD ***********/
 
@@ -223,35 +225,32 @@ async function starts() {
         fs.writeFileSync('./BarBar.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
 
 	client.on('group-participants-update', async (anu) => {
-		if (!welkom.includes(anu.jid)) return
-		try {
-			const mdata = await client.groupMetadata(anu.jid)
-			console.log(anu)
-			if (anu.action == 'add') {
-				num = anu.participants[0]
-				try {
-					ppimg = await client.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-				}
-				teks = `Olá @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}*\n\nEspero que goste do grupo ❤️`
-				let buff = await getBuffer(ppimg)
-				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
-				client.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-			} else if (anu.action == 'remove') {
-				num = anu.participants[0]
-				try {
-					ppimg = await client.getProfilePicture(`${num.split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-				}
-				teks = `Tchau @${num.split('@')[0]} Ja foi tarde 😂👋`
-				let buff = await getBuffer(ppimg)
-				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
-			}
-		} catch (e) {
-			console.log('Error : %s', color(e, 'red'))
-		}
+                if (!welkom.includes(anu.jid)) return
+                try {const imgur = require('imgur')
+            const mdata = await client.groupMetadata(anu.jid)
+            try {
+                var pp_user = await client.getProfilePicture(num)
+            } catch (e) {
+                var pp_user = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+            } exeone = await imageToBase64(JSON.stringify(pp_user).replace(/\"/gi, ''))
+                        exetwo = getRandom('.jpeg')
+                        fs.writeFileSync(exetwo, exeone, 'Base64')
+                        let psCAPA = await imgur.uploadFile(exetwo)
+                        fs.unlinkSync(exetwo)
+            if (anu.action == 'add') {
+            num = anu.participants[0]
+                ini_img = await getBuffer(`https://api-exteam.herokuapp.com/api/welcome?nome=${num.split('@')[0]}&gpnome=${encodeURIComponent(mdata.subject)}&perfil=${psCAPA.link}&fundo=https://i.ibb.co/BHJPWTs/sonny-mauricio-Nzdo-UCVLTe-Y-unsplash-picsay.jpg`)
+                group_info = await client.groupMetadata(anu.jid)
+                  client.sendMessage(anu.jid, ini_img, MessageType.image, {contextInfo: {"mentionedJid": [num]}})
+            }
+            if (anu.action == 'remove') {
+                num = anu.participants[0]
+                ini_img = await getBuffer(`https://api-exteam.herokuapp.com/api/goodbye?nome=${num.split('@')[0]}&gpnome=${mdata.subject}&perfil=${psCAPA.link}&fundo=https://i.ibb.co/BHJPWTs/sonny-mauricio-Nzdo-UCVLTe-Y-unsplash-picsay.jpg`)
+                  client.sendMessage(anu.jid, ini_img, MessageType.image, {contextInfo: {"mentionedJid": [num]}})
+            }
+                } catch (e) {
+                        console.log('Error : %s', color(e, 'red'))
+                }
 	})
 
 	client.on('CB:Blocklist', json => {
@@ -668,27 +667,7 @@ if (text.includes("placa"))
 		}, 0)
 	}
 	
-	if (messagesC.includes("fdp")){
-			client.updatePresence(from, Presence.composing)
-			reply("teu pai")
-	}
-	
-		if (messagesC.includes("corno")){
-			client.updatePresence(from, Presence.composing)
-			reply("vsfd seu merda")
-	}
-	
-		if (messagesC.includes("tmnc")){
-			client.updatePresence(from, Presence.composing)
-			reply("vai vc, tu ja me disse q é mo bom")
-	}
-	
-		if (messagesC.includes("vsfd")){
-			client.updatePresence(from, Presence.composing)
-			reply("bora juntos?")
-	}
-	
-		if (messagesC.includes("cadebot")){
+	if (messagesC.includes("cadebot")){
 			client.updatePresence(from, Presence.composing)
 			reply("olha eu aqui carai")
 	}
@@ -1322,7 +1301,7 @@ if (text.includes("placa"))
 		             break
 				case 'loli2':
 					if (!isAnime) return reply('❌ *Deve ativar o modo Anime* ❌')
-					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=loli&apikey={BELI APIKEY BIAR WORK DI 0816546638}`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=loli`, {method: 'get'})
 					var lol = JSON.parse(JSON.stringify(anu.result));
 					var i2 =  lol[Math.floor(Math.random() * lol.length)];
 					nyeee = await getBuffer(i2)
@@ -1338,10 +1317,10 @@ if (text.includes("placa"))
 					pineq = await getBuffer(trest)
 					client.sendMessage(from, pineq, image, { caption: '*Pinterest*\n\n*Resultado Pesquisa : '+pinte+'*', quoted: mek })
 					break
-//@darkYT					
+//@noah					
 				case 'pokemon':
                     client.updatePresence(from, Presence.composing) 
-					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=pokemon`, {method: 'get'})
+					data = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=pokemon`, {method: 'get'})
 					reply(mess.wait)
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
@@ -1492,7 +1471,7 @@ if (text.includes("placa"))
 					break
 				case 'rize':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+rize`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=anime+rize`, {method: 'get'})
 					ri = JSON.parse(JSON.stringify(anu));
 					ze =  ri[Math.floor(Math.random() * ri.length)];
 					nye = await getBuffer(ze)
@@ -1813,7 +1792,7 @@ if (text.includes("placa"))
 				case 'pinterest':
                     tels = body.slice(11)
 					client.updatePresence(from, Presence.composing) 
-					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${tels}`, {method: 'get'})
+					data = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=${tels}`, {method: 'get'})
 					reply(mess.wait)
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
@@ -1857,7 +1836,7 @@ if (text.includes("placa"))
 				case 'naruto':
 
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=Naruto`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=Naruto`, {method: 'get'})
 					naru = JSON.parse(JSON.stringify(anu));
 					to =  naru[Math.floor(Math.random() * naru.length)];
 					nye = await getBuffer(to)
@@ -1877,7 +1856,7 @@ if (text.includes("placa"))
 				case 'minato':
 
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=Minato`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=Minato`, {method: 'get'})
 					min = JSON.parse(JSON.stringify(anu));
 					ato =  min[Math.floor(Math.random() * min.length)];
 					nye = await getBuffer(ato)
@@ -1887,7 +1866,7 @@ if (text.includes("placa"))
 				case 'boruto':
 
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=Boruto`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=Boruto`, {method: 'get'})
 					bor = JSON.parse(JSON.stringify(anu));
 					uto =  bor[Math.floor(Math.random() * bor.length)];
 					nye = await getBuffer(uto)
@@ -1948,7 +1927,7 @@ break
 				case 'hinata':
 
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=Hinata`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=Hinata`, {method: 'get'})
 					hina = JSON.parse(JSON.stringify(anu));
 					ta =  hina[Math.floor(Math.random() * hina.length)];
 					nye = await getBuffer(ta)
@@ -2023,7 +2002,7 @@ break
 				case 'sasuke':
 
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=sasuke`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=sasuke`, {method: 'get'})
 					sasu = JSON.parse(JSON.stringify(anu));
 					ke =  sasu[Math.floor(Math.random() * sasu.length)];
 					nye = await getBuffer(ke)
@@ -2033,7 +2012,7 @@ break
 				case 'sakura':
 
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=sakura`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=sakura`, {method: 'get'})
 					sak = JSON.parse(JSON.stringify(anu));
 					kura =  sak[Math.floor(Math.random() * sak.length)];
 					nye = await getBuffer(kura)
@@ -2271,7 +2250,26 @@ break
                     await reply(`Error!\n${err}`)
                     })
                     break
-                case 'leveling':
+                case 'leaderboard':
+		        case 'lb':
+				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
+				uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
+				let leaderboardlvl = '-----[ *LEADERBOARD LEVEL* ]----\n\n'
+				let leaderboarduang = '-----[ *LEADERBOARD UANG* ]----\n\n'
+				try {
+				for (let i = 0; i < 10; i++) {
+					nom++
+					leaderboardlvl += `*[${nom}]* ${_level[i].id.replace('@s.whatsapp.net','')}\n◪  *XP*: ${_level[i].xp}\n◪  *Level*: ${_level[i].level}\n`
+					leaderboarduang += `*[${nom}]* ${uang[i].id.replace('@s.whatsapp.net','')}\n◪  *Uang*: _Rp${uang[i].uang}_\n◪  *Limit*: ${limitawal - _limit[i].limit}\n`
+				}
+				await reply(leaderboardlvl)
+				await reply(leaderboarduang)
+				} catch (err) {
+				console.error(err)
+				await reply(`Precisa de 10 usuários para poder acessar o ranking`)
+				}
+				break
+				case 'leveling':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply('Boo :𝘃')
@@ -2639,7 +2637,7 @@ break
 					break
 				case 'kurumi':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+karumi`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=kurumi`, {method: 'get'})
 					kur = JSON.parse(JSON.stringify(anu));
 					imi =  kur[Math.floor(Math.random() * kur.length)];
 					nye = await getBuffer(imi)
@@ -2648,7 +2646,7 @@ break
 					break 
 				case 'miku':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+miku`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=miku`, {method: 'get'})
 					mi = JSON.parse(JSON.stringify(anu));
 					ku =  mi[Math.floor(Math.random() * mi.length)];
 					nye = await getBuffer(ku)
@@ -2661,7 +2659,7 @@ break
                 case 'anjing':
                    if (!isGroup) return reply(ind.groupo())
                    if (!isNsfw) return reply(ind.nsfwoff())
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=anjing`, {method: 'get'})
 					reply(ind.wait())
 					var n = JSON.parse(JSON.stringify(anu));
 					var nimek =  n[Math.floor(Math.random() * n.length)];
@@ -2719,7 +2717,7 @@ break
                    break 
 				case 'akira':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+akira`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=anime+akira`, {method: 'get'})
 					ak = JSON.parse(JSON.stringify(anu));
 					ara =  ak[Math.floor(Math.random() * ak.length)];
 					nye = await getBuffer(ara)
@@ -2728,7 +2726,7 @@ break
 					break 
 				case 'itori':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+itori`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=anime+itori`, {method: 'get'})
 					it = JSON.parse(JSON.stringify(anu));
 					ori =  it[Math.floor(Math.random() * it.length)];
 					nye = await getBuffer(ori)
@@ -2737,7 +2735,7 @@ break
 					break 
 				case 'kurumi':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+karumi`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=anime+karumi`, {method: 'get'})
 					kur = JSON.parse(JSON.stringify(anu));
 					imi =  kur[Math.floor(Math.random() * kur.length)];
 					nye = await getBuffer(imi)
@@ -2746,7 +2744,7 @@ break
 					break 
 				case 'miku':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anime+miku`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=anime+miku`, {method: 'get'})
 					mi = JSON.parse(JSON.stringify(anu));
 					ku =  mi[Math.floor(Math.random() * mi.length)];
 					nye = await getBuffer(ku)
@@ -3618,16 +3616,34 @@ break
                     break
 				case 'meme':
 					reply(mess.wait)
-					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=MEME BRASIL`, {method: 'get'})
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=MEME BRASIL`, {method: 'get'})
 					ri = JSON.parse(JSON.stringify(anu));
 					ze =  ri[Math.floor(Math.random() * ri.length)];
 					nye = await getBuffer(ze)
-					client.sendMessage(from, nye, image, { caption: 'cringe️', quoted: mek })
+					client.sendMessage(from, nye, image, { caption: 'Meme', quoted: mek })
+					await limitAdd(sender) 	
+					break
+				case 'wanime':
+					reply(mess.wait)
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=wallpaper anime`, {method: 'get'})
+					ri = JSON.parse(JSON.stringify(anu));
+					ze =  ri[Math.floor(Math.random() * ri.length)];
+					nye = await getBuffer(ze)
+					client.sendMessage(from, nye, image, { caption: 'Que bunito', quoted: mek })
+					await limitAdd(sender) 	
+					break
+				case 'memeanime':
+					reply(mess.wait)
+					anu = await fetchJson(`http://fdciabdul.tech/api/pinterest?keyword=meme de anime brasil`, {method: 'get'})
+					ri = JSON.parse(JSON.stringify(anu));
+					ze =  ri[Math.floor(Math.random() * ri.length)];
+					nye = await getBuffer(ze)
+					client.sendMessage(from, nye, image, { caption: 'kkkk', quoted: mek })
 					await limitAdd(sender) 	
 					break
 				case 'rule34':
 					memein = await kagApi.memeindo()
-					buffer = await getBuffer(`https://rule34.xxx//index.php?page=dapi&s=post&q=index`)
+					buffer = await getBuffer(`http://fdciabdul.tech/api/pinterest?keyword=rule34`)
 					client.sendMessage(from, buffer, image, {quoted: mek, caption: '.......'})
 					break
 				case 'memeindo':
