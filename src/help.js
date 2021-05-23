@@ -15,129 +15,134 @@ _/﹋\_
 
 ╔════•ೋೋ•════╗ 
    *Menu🏰*
-👑 *figu*
-👑 *toimg*
-👑 *pinterest[ pesquisar img]*
-👑 *wait [marca img anime]*
-👑 *ytmp4*
-👑 *tomp3*
-👑 *play*
+👑 *.figu*
+👑 *.toimg*
+👑 *.pinterest(pesquisar img)*
+👑 *.wanime(walpaper anime)*
+👑 *.wait [marca img anime]*
+👑 *.ytmp4*
+👑 *.tomp3*
+👑 *.play*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
    *Diversão🎉*
-👑 *meme*
-👑 *darkjokes (memes)*
-👑 *mandememe*
-👑 *roleta*
-👑 *amor [@]*
-👑 *casal [@]*
-👑 *punheteiros [@]*
-👑 *gay [@]*
-👑 *gays*
-👑 *bixas*
-👑 *cornos*
-👑 *surubadehoje*
-👑 *gado [@]*
-👑 *xv [@]*
-👑 *lgbt [@]*
-👑 *assttp(texto) [@]*
-👑 *text3d(texto) [@]*
-👑 *testime*
-👑 *alerta*
+👑 *.meme*
+👑 *.memeanime(anime engraçado)*
+👑 *.darkjokes(memes)*
+👑 *.mandememe*
+👑 *.roleta*
+👑 *.amor[@]*
+👑 *.casal[@]*
+👑 *.punheteiros[@]*
+👑 *.gay[@]*
+👑 *.gays*
+👑 *.bixas*
+👑 *.cornos*
+👑 *.surubadehoje*
+👑 *.gado [@]*
+👑 *.xv [@]*
+👑 *.lgbt [@]*
+👑 *.assttp(texto)[@]*
+👑 *.text3d(texto)[@]*
+👑 *.testime*
+👑 *.alerta*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
    *Imagens😊*
-👑 *modoanime [on/off]*
-👑 *waifu  [aleatórias]*
-👑 *naruto [aleatórias]*
-👑 *hinata [aleatórias]*
-👑 *boruto [aleatórias]*
-👑 *minato [aleatórias]*
-👑 *sakura [aleatórias]*
-👑 *sasuke [aleatórias]*
-👑 *rize   [aleatórias]* 
-👑 *miku   [aleatórias]* 
-👑 *kurumi [aleatórias]* 
-👑 *loli*
-👑 *loli1*
-👑 *hentai*
-👑 *bomdia*
-👑 *boatarde* 
-👑 *boanoite*
+👑 *.modoanime [on/off]*
+👑 *.waifu  [aleatórias]*
+👑 *.naruto [aleatórias]*
+👑 *.hinata [aleatórias]*
+👑 *.boruto [aleatórias]*
+👑 *.minato [aleatórias]*
+👑 *.sakura [aleatórias]*
+👑 *.sasuke [aleatórias]*
+👑 *.rize   [aleatórias]* 
+👑 *.miku   [aleatórias]* 
+👑 *.kurumi [aleatórias]* 
+👑 *.pokemon [aleatórias]*
+👑 *.akira [aleatórias]*
+👑 *.itori [aleatórias]*
+👑 *.loli*
+👑 *.loli1*
+👑 *.hentai*
+👑 *.bomdia*
+👑 *.boatarde* 
+👑 *.boanoite*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
    *Imagens🔞*
-👑 *modonsfw [on/off]*
-👑 *ler [ex:ler01. Tem H de 01 até 11 porque ta em beta]*
-👑 *nsfwloli [apenas no pv]*
-👑 *trap*
-👑 *nsfwblowjob*
-👑 *nsfwneko*
-👑 *nsfwtrap*
-👑 *belle*
+👑 *.modonsfw [on/off]*
+👑 *.ler [ex:ler01. Tem H de 01 até 11 beta]*
+👑 *.nsfwloli [apenas no pv]*
+👑 *.trap*
+👑 *.nsfwblowjob*
+👑 *.nsfwneko*
+👑 *.nsfwtrap*
+👑 *.belle*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗
-   *Level do Grupo*
-👑 *leveling [on/off]*
-👑 *level*
+   *.Level do Grupo*
+👑 *.leveling [on/off]*
+👑 *.level*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
     *Informação do Grupo*
-👑 *bemvindo [1/0]*
-👑 *grupoinfo(Vejas as Regras)*
-👑 *dono*
-👑 *canal*
+👑 *.bemvindo [1/0]*
+👑 *.grupoinfo(Vejas as Regras)*
+👑 *.dono*
+👑 *.canal*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
    *Para os Adms*
-👑 *marcar*
-👑 *marcar2*
-👑 *marcar3*
-👑 *banir*
-👑 *add [@]*
-👑 *banir [@]*
-👑 *promover [@]*
-👑 *rebaixar*
-👑 *admins*
-👑 *linkgp*
-👑 *nomegp*
-👑 *bloqueados*
-👑 *bloquear [@]*
-👑 *desbloquear [@]*
-👑 *limpar*
-👑 *clonar [@]*
-👑 *menu1*
-👑 *ping [ver velocidade do bot]*
-👑 *wame (criar link do seu whatsapp*
-👑 *desligar (so para o dono)*
-👑 *setfoto (alterar foto do grupo)*
-👑 *setnome (alterar nome do grupo)*
-👑 *setdesc (Mudar a descrição do grupo)*
+👑 *.marcar*
+👑 *.marcar2*
+👑 *.marcar3*
+👑 *.banir*
+👑 *.add [@]*
+👑 *.banir [@]*
+👑 *.promover [@]*
+👑 *.rebaixar*
+👑 *.admins*
+👑 *.linkgp*
+👑 *.nomegp*
+👑 *.bloqueados*
+👑 *.bloquear [@]*
+👑 *.desbloquear [@]*
+👑 *.limpar*
+👑 *.clonar [@]*
+👑 *.menu1*
+👑 *.ping [ver velocidade do bot]*
+👑 *.wame (criar link do seu whatsapp*
+👑 *.desligar (so para o dono)*
+👑 *.setfoto (alterar foto do grupo)*
+👑 *.setnome (alterar nome do grupo)*
+👑 *.setdesc (Mudar a descrição do grupo)*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
    *Melhorar Grupo*
-👑 *antiracismo [on/off]*
-👑 *antilink [1/0]*
+👑 *.antiracismo [on/off]*
+👑 *.antilink [1/0]*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
     *Comandos de Voz🤖*
-👑 *ola*
-👑 *bv*
-👑 *tchau*
-👑 *bem*
-👑 *a*
-👑 *fdp*
-👑 *onich*
-👑 *beat1*
-👑 *glub*
+👑 *.ola*
+👑 *.bv*
+👑 *.tchau*
+👑 *.bem*
+👑 *.a*
+👑 *.fdp*
+👑 *.onich*
+👑 *.beat1*
+👑 *.glub*
 ╚════•ೋೋ•════╝
 
 ╔════•ೋೋ•════╗ 
@@ -167,3 +172,4 @@ Mandar a msg sem o prefixo
 }
 
 exports.help = help
+
