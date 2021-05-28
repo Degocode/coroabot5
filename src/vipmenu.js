@@ -1,25 +1,10 @@
-const vipmenu = (prefix) => { 
-	return `            
-	
-╔══✪〘 USUÁRIO VIP 〙✪══
-║
-╠➸ *${prefix}dado*
-╠➸ *${prefix}cekvip*
-╠➸ *${prefix}premiumlist*
-╠➸ *${prefix}delete*
-╠➸ *${prefix}modapk*
-╠➸ *${prefix}indo10*
-╠➸ *${prefix}daftarvip [para virar Premium]*
-╠➸ *${prefix}qrcode*
-╠➥ *${prefix}chentai*
-╠➥ *${prefix}gcpf*
-╠➥ *${prefix}gbin*
-╠➥ *${prefix}pack*
-╠➥ *${prefix}destrava*
-╠➥ *${prefix}gpessoa*
-║
-║
-╚══✪〘  ANDRE NOAH 〙✪══
-`
+const menu2 = (prefix) => { 
+	return `                 
+*┌Ainda vamos pensar o que fazer aqui no menu*
+*│.figu*
+*│.toimg*
+*│.meme*
+*│.memeindo*
+*Noah Bot*`
 }
-exports.vipmenu = vipmenu
+exports.menu2 = menu2
